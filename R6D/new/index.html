@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Recovering 6D Object Pose</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://bootstraptaste.com" />
+<!-- css -->
+<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jcarousel.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+
+
+<!-- Theme skin -->
+<link href="skins/default.css" rel="stylesheet" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="wrapper">
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><span>Recovering 6D Object Pose</span></a><br><a class="navbar-brand" href="http://www.eccv2016.org/">ECCV 2016</a>
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        
+                        <li><a href="docs/cfp.pdf">CFP</a></li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Participate <b class=" icon-angle-down"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#Papers">Papers / Extended Abstracts</a></li>
+                                <li><a href="#Challenge">Challenges</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#keynote">Keynotes</a></li>
+                        <li><a href="#people">People</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</header>
+	<!-- end header -->
+	<section id="featured">
+	<!-- start slider -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+	<!-- Slider -->
+        <div id="main-slider" class="flexslider">
+            <ul class="slides">
+              <li>
+                <img src="img/slides/R6D.png" alt="" />
+                <div class="flex-caption">
+                    <h3>R6D 2016</h3> 
+					<p>ECCV workshop on cutting edge research on RGB and D object pose estimation</p> 
+					<!--<a href="#" class="btn btn-theme">Learn More</a>-->
+                </div>
+              </li>
+              <li>
+                <img src="img/slides/R6D_ch.png" alt="" />
+                <div class="flex-caption">
+                    <h3>Challenges</h3> 
+					<p>Participate in our exciting challenges!</p> 
+					<a href="#Challenge" class="btn btn-theme">Learn More</a>
+                </div>
+              </li>
+              <!--<li>
+                <img src="img/slides/3.jpg" alt="" />
+                <div class="flex-caption">
+                    <h3>Clean  Fast</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit donec mer lacinia.</p> 
+					<a href="#" class="btn btn-theme">Learn More</a>
+                </div>
+              </li>-->
+            </ul>
+        </div>
+	<!-- end slider -->
+			</div>
+		</div>
+	</div>	
+	
+	
+
+	</section>
+	<section class="callaction">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="big-cta">
+					<div class="cta-text">
+						<h2><span>Recovering 6D Object Pose Estimation</span></h2>
+                        <div align="justify">
+                        <br>The development of RGB-D sensors, high GPU computing, and scalable machine learning algorithms have opened the door to a whole new range of technologies and applications which require detecting and estimating object poses in 3D environments for a variety of scenarios.Our program will feature several high-quality invited talks, poster presentations, and a panel discussion to identify key research questions and highlight future research directions. We invite submissions of papers and extended abstracts of ongoing or already published work. Accepted papers and extended abstracts will be presented as posters / spotlights at the workshop, in areas including, but not limited to:
+                        <ul>
+                        
+                        <li>3D	object	detection</li>
+<li>Object detection in depth images</li>
+<li>Joint registration of multiple 3D objects</li>
+<li>6 DoF object pose, under heavy occlusions and background clutters</li>
+<li>Occlusion-aware segmentation</li>
+<li>Bin-picking</li>
+<li>3D	object	tracking</li>
+<li>Surface representation and fitting</li>
+<li>Non-rigid (deformable or articulated) object registration</li>
+<li>3D object modelling</li>
+<li>Multiple object instance detection</li>
+<li>Object class (category) detection</li>
+</ul>
+<br>We also invite authors to submit results to our challenges. Such results will be presented at the workshop and likely cited in later work.
+                     <br>   
+                      <br>
+                        <strong>Previous R6D Workshop:</strong> <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/3DPose-2015.html">R6D2015</a>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Important Dates</h4>
+								<div class="icon">
+								<!--<i class="fa fa-desktop fa-3x"></i>-->
+								</div>
+								<p align="left">Paper Submission Deadline: <strong>TBD</strong></p>
+                                <p align="left">Paper Acceptance Notification: <strong>TBD</strong></p>
+                                <p align="left">Camera Ready Date: <strong>TBD</strong></p>
+                                <p align="left">Challenge Submission Deadline: <strong>TBD</strong></p>
+                                <p align="left">Extended Abstract Submission Deadline: <strong>TBD</strong></p>
+                                <p align="left">Workshop Date: <strong>TBD</strong></p>
+									
+							</div>
+							<!--<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>-->
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Venue</h4>
+								<div class="icon">
+								<!--<i class="fa fa-pagelines fa-3x"></i>-->
+								</div>
+								<p align="justify">
+                                
+								 R6D Workshop is part of the ECCV 2016 workshops. <br>
+                                 <br>
+                                 Please see the <a href="http://www.eccv2016.org/"><strong>ECCV webpage</strong></a> for details on venue, accomodations, and other details!
+								</p>
+									
+							</div>
+							<!--<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>-->
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>News</h4>
+								<div class="icon">
+								<!--<i class="fa fa-edit fa-3x"></i>-->
+								</div>
+								<p align="left">Our website is online</p> 
+									
+							</div>
+							<!--<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>-->
+						</div>
+					</div>
+					</div>
+			</div>
+		</div>
+		<!-- divider -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="solidline">
+				</div>
+			</div>
+		</div>
+		<!-- end divider -->
+        
+         <!-- Portfolio Projects -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="heading">Participate</h4>
+                    <div class="box-gray" id="Papers">
+                    <h4>Paper / Extended Abstracts Submissions</h4>
+                    <div align="justify">
+                        We	invite	submissions	of	papers and extended	abstracts of ongoing or already	published	work.	Authors	are	given	the	opportunity to	promote	their	work	to	an	extended	audience	in	all	areas covered	by	the	workshop. <br><br>
+                    
+                       Extended abstracts are limited to two pages. Authors are free to use any format available, e.g. the ECCV 2016 word or LaTex templates tar or zip.
+                       <br><br>The submission must be sent to iccv.3dpose.2015@gmail.com no later than 15 November 2015.
+                       
+                    </div>
+                    </div>
+                    <br>
+                    <div class="box-gray" id="Challenge">
+                    <h4>Challenges</h4>
+                    <div align="justify">
+                        Following the success and popularity of other challenges in object detection in 2D images, we want to establish a new challenge (comprised of 4 sub-challenges) in the area of 6 DoF object detection, which, to our knowledge, is the first of each kind. Each challenge will include and gradually be enriched with numerous test scenes and objects, including their 3D models. You can apply your method to our data and submit your results. We will evaluate submitted results according to multiple metrics and display the scores for comparison. For more information please visit the respective website of the individual challenge.<br><br>
+                 <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/Challenge.html">Imperial College London</a>&nbsp;&nbsp;
+                 <a href="http://cvlab-dresden.de/iccv2015-articulation-challenge/">TU Dresden</a>&nbsp;&nbsp;
+                 <a href="http://cvlab.epfl.ch/data/3d_object_tracking">TU Graz & EPFL</a>&nbsp;&nbsp;
+                 <a href="http://cmp.felk.cvut.cz/t-less/">Czech Tech. University</a>&nbsp;&nbsp;
+                 <a href="http://www.cs.bham.ac.uk/research/projects/uob-hooc/">University of Birmingham</a>
+                    </div>
+                    </div>
+			</div>
+		</div>
+        
+        <!-- divider -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="solidline">
+				</div>
+			</div>
+		</div>
+		<!-- end divider -->
+        
+		<!-- Portfolio Projects -->
+		<div class="row">
+			<div class="col-lg-12" id="keynote">
+				<h4 class="heading">Keynote Speakers</h4>
+				<div class="row">
+					<section id="projects">
+					<ul id="thumbs" class="portfolio">
+						<!-- Item Project and Filter Name -->
+						<li class="col-lg-3 design" data-id="id-0" data-type="web">
+						<div class="item-thumbs">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Tinne Tuytelaars" href="img/works/Tinne_1.png">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/Tinne.png" alt="is a Professor at KU Leuven.">
+						</div>
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Carsten Steger" href="img/works/Carsten_1.png">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/Carsten.png" alt="is a ....">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Silvio Savarese" href="img/works/Silvio_1.png">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/Silvio.png" alt="is a ...">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Jianxiong Xiao" href="img/works/Jianxiong_1.png">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="img/works/Jianxiong.png" alt="is a ...">
+						</li>
+						<!-- End Item Project -->
+					</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+
+
+<div class="row">
+			<div class="col-lg-12" id="people">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Workshop Chairs</h4>
+								<div class="icon">
+								<!--<i class="fa fa-desktop fa-3x"></i>-->
+								</div>
+								<p align="left"><a href="http://www.iis.ee.ic.ac.uk/icvl/cv.htm">Tae-Kyun Kim</a>, <i>Imperial College London</i></p>
+                                <p align="left"><a href="http://cmp.felk.cvut.cz/~matas/">Jiri Matas</a>, <i>Chech Technical University</i></p>
+                                <p align="left"><a href="http://www.icg.tugraz.at/Members/lepetit">Vincent Lepetit</a>, <i>Technical University Graz</i></p>
+                                <p align="left"><a href="http://cvlab-dresden.de/">Carsten Rother</a>, <i>Technical University Dresden</i></p>
+                                <p align="left"><a href="http://www.cs.bham.ac.uk/~leonarda/">Ales Leonardis</a>, <i>University of Birmingham</i></p>
+                                <p align="left"><a href="http://www.krzysztofwalas.vipserv.org/">Krzysztof Wallas</a>, <i>Poznan University of Technology</i></p>
+                                <p align="left"><a href="http://iuks.informatik.tu-muenchen.de/members/steger">Carsten Steger</a>, <i>MVTec GmbH</i></p>
+                                <p align="left"><a href="http://www.iis.ee.ic.ac.uk/rkouskou/">Rigas Kouskouridas</a>, <i>Imperial College London</i></p>
+									
+							</div>
+							<!--<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>-->
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Challenge Chairs</h4>
+								<div class="icon">
+								<!--<i class="fa fa-pagelines fa-3x"></i>-->
+								</div>
+								<p align="left"><a href="http://cvlab-dresden.de/">Frank Michel</a>, <i>Technical University Dresden</i></p>
+                                <p align="left"><a href="http://cvlab-dresden.de/">Alexander Krull</a>, <i>Technical University Dresden</i></p>
+                                <p align="left"><a href="http://andoum.info/">Andreas Doumanoglou</a>, <i>Imperial College London</i></p>
+                                <p align="left"><a href="http://cmp.felk.cvut.cz/~hodanto2/">Tomas Hodan</a>, <i>Chech Technical University</i></p>
+                                <p align="left"><a href="http://cvlabwww.epfl.ch/~crivella/">Alberto Crivellaro</a>, <i>EPFL</i></p>
+                              
+							</div>
+							<!--<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>-->
+						</div>
+					</div>
+					
+					</div>
+			</div>
+		</div>
+
+
+
+
+
+	</div>
+	</section>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="widget">
+					<h5 class="widgetheading">Contact us</h5>
+					<p>	<i class="icon-envelope-alt"></i> eccv2016@gmail.com
+                    </p>
+				</div>
+                <div class="copyright">
+						<p>
+							<span>&copy; Moderna 2014 All right reserved. By </span><a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>
+						</p>
+					</div>
+			</div>
+				</div>
+	</div>
+</footer>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script>
+<script src="js/google-code-prettify/prettify.js"></script>
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
