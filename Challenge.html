@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<title>Imperial Computer Vision & Learning Lab (ICVL)</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/join.css" media="all">
+
+</head>
+<body>
+<header>
+  <div class="reflection wrap">
+    <div id="header">
+      <h1><span style="color:red">I</span>.<span style="color:green">C</span>.<span style="color:blue">V</span>.<span style="color:#808080">L</span>.</h1>
+      <h2></h2>
+      <h4><span style="color:white">Imperial Computer Vision & Learning Lab</span></h4>
+      <nav>
+        <ul>
+         <li><a href="index.html">Home</a></li>
+          <li><a href="Research.html">Research</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Members.html">Members</a></li>
+          <li><a href="Datasets_Code.html">Code - DB</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="JoinUs.html">Join Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div id="content">
+  <div class="wrap">
+    <div class="separate clearFix">
+        <div class="col1-3">
+   		
+      <!--Starting Table-->  	     
+      <table width="100%" border="0" cellspacing="0" style="table-layout:fixed">
+      <col width="10%">
+      <col width="2%">
+      <col width="18%">
+      <col width="5%">
+      <col width="20%">
+      <col width="10%">
+      <col width="2%">
+      <col width="3%">
+      <col width="18%">
+      <col width="12%">
+      
+      
+      
+      
+      <!--Header---->
+      <tr><td colspan="10" style="text-align:center"><h3>Multi-Object Pose Estimation Challenge</h3></td></tr>
+      <tr><td colspan="10" style="text-align:center"><h3>ICCV 2015 Workshop </h3></td></tr>
+      
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      <tr>
+    <td colspan="3" align="center" valign="middle">
+              <!-- To keep aspect ratio please use width 392 height 220 -->
+             <img src="img1.png" width="294"></td>  <td></td>
+            <td colspan="2" align="center" valign="middle">
+              <!-- To keep aspect ratio please use width 392 height 220 -->
+             <img src="img2.png" width="294"></td>  <td colspan="2"></td>
+     <td colspan="2" align="center" valign="middle">
+              <!-- To keep aspect ratio please use width 392 height 220 -->
+             <img src="img3.png" width="294"></td>     
+          </tr>   
+
+      
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      
+      <tr><td colspan="10" style="text-align:left"><h3>Description</h3></td></tr>
+      <tr><td colspan="10"><p align="justify">The Multi-Object Pose Estimation Challenge is part of the <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/3DPose-2015.html">ICCV 2015 workshop on Recovering 6D Object Pose</a> and aims in evaluating various methods on the problem of 6D pose estimation of multiple objects in a scene.</p></td></tr>
+      
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      <tr><td colspan="10" style="text-align:left"><h3>Dataset</h3></td></tr>
+      
+      <tr><td colspan="10"><p align="justify">The dataset can be downloaded from <a href="http://www.iis.ee.ic.ac.uk/rkouskou/Research.html">here</a>. It contains 6 objects and about 1000 test images per object. Test images contain multiple instances of the object with partial occlusions. For training, the 3D models of the objects are provided. To refere to this dataset please cite the following paper: <i>A. Tejani, D. Tang, R. Kouskouridas and T-K. Kim, “Latent-Class Hough Forests for 3D Object Detection and Pose Estimation”, European Conference on Computer Vision (ECCV), Zurich, Switzerland, 2014 </i>[1]</p></td></tr>            
+      
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      
+      <tr><td colspan="10" style="text-align:left"><h3>Evaluation</h3></td></tr>
+
+      <tr><td colspan="10"><p align="justify">To evaluate the results, the percentage of correctly estimated poses per object is calculated, along with false positives and false negatives. In order to assess whether a 6D pose solution is correct we use the following three metrics:<br>
+
+1. The AD criterion (Hinterstoisser et al. [2]): We calculate the Average Distance (AD) between all vertices in the 3D model in the estimated pose and the ground truth pose. A pose is considered correct, when this average distance is below 10% of the object diameter.<br>
+2. 5cm, 5deg (Shotton et al. [3]): A pose is considered correct when the translational error is below 5cm and the rotational error is below 5deg.<br>
+3. The IOU criterion: We calculate the 2D axis aligned bounding boxes in the estimated pose and ground truth pose. We calculate the IOU (Intersection Over Union) of the bounding boxes and a pose is considered correct, when this value is above a threshold (to be defined).</p></td></tr> 
+      
+     <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      <tr><td colspan="10" style="text-align:left"><h3>Participation</h3></td></tr>
+      
+      <tr><td colspan="10"><p align="justify">In order to participate, you should send us the results at <a href="mailto:icvl.challenge.2015@gmail.com">icvl.challenge.2015@gmail.com</a> of the 3D pose estimation of the objects in the test images.<br><br> You should create separate folders for each object, and for each test image of each object you should include a file called poseXXX.txt where XXX is the number of the test image. The file poseXXX.txt should include N 4x4 rotation matrices, one under the other, one line per row. N is the number of objects that your algorithm detected.<br><br>
+To evaluate the results, please send us a zip file containing one folder per object with the pose files, and we will measure the accuracy using all our metrics. Results will be published here after the challenge. 
+</p></td></tr>  
+
+      <tr>
+      <td width="5%">&nbsp;</td>
+      <td width="5%">&nbsp;</td>
+      </tr>
+      <tr><td colspan="10" style="text-align:left"><h3>References</h3></td></tr>
+      
+      <tr><td colspan="10"><p align="justify">1. A. Tejani, D. Tang, R. Kouskouridas and T-K. Kim, “Latent-Class Hough Forests for 3D Object Detection and Pose Estimation”, European Conference on Computer Vision (ECCV), Zurich, Switzerland, 2014<br>
+2.  Stefan Hinterstoisser, Vincent Lepetit, Slobodan Ilic, Stefan Holzer, Gary R. Bradski, Kurt Konolige, Nassir Navab: Model Based Training, Detection and Pose Estimation of Texture-Less 3D Objects in Heavily Cluttered Scenes. ACCV 2012<br>
+3. [Shotton2013]: Jamie Shotton, Ben Glocker, Christopher Zach, Shahram Izadi, Antonio Criminisi, Andrew Fitzgibbon: Scene Coordinate Regression Forests for Camera Relocalization in RGB-D Images. CVPR 2013 
+
+
+
+</p></td></tr>   
+
+   
+      </table>
+      
+      
+      
+</div>
+</div>
+</div>
+  <!-- / .wrap -->
+</div>
+<!-- / #content -->
+
+
+<hr>
+<footer>
+  <div id="footer">
+    <div class="wrap clearFix">
+      <div id="copyright" class="clearFix">
+        <p>&copy; 2015 &ndash; <a href="index.html">Imperial Computer Vision & Learning Lab (ICVL)</a> &ndash; All rights reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

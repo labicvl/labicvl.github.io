@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="x-ua-compatible" content="IE=8">
+        <title>3D Hand Pose Estimation</title>
+        <meta name="Keywords" content="Articulated,3D,Hand Pose,Kinect,Random Forest,Latent Regression Forest">
+        <meta name="Description" content="">
+        <link rel="stylesheet" href="./hand/default.css" type="text/css">
+        <script type="text/javascript" async="" src="./hand/ga.js"></script><script type="text/javascript" async="" src="./hand/ga(1).js"></script><script src="./hand/proxy.js"></script>
+        <script language="javascript" src="./hand/jquery-1.7.2.min.js"></script>
+        <script language="javascript" src="./hand/util.js"></script>
+
+        <script type="text/javascript">        
+        function MM_swapImgRestore() { //v3.0
+          var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+        }
+        function MM_preloadImages() { //v3.0
+          var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+            var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+            if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+        }
+
+        function MM_findObj(n, d) { //v4.01
+          var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+            d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+          if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+          for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+          if(!x && d.getElementById) x=d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+          var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+           if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+        }
+        </script>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34570838-1']);
+          _gaq.push(['_setDomainName', 'iis.ee.ic.ac.uk']);
+          _gaq.push(['_setAllowLinker', true]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+</head>
+<body onload="loadAll();">
+    <div class="outer_frame">
+        <table border="0" cellpadding="0" cellspacing="0" width="950px" bgcolor="#000000" align="top" style="border:0px;">
+            <tbody>
+            <tr>
+                <td height="77" align="left" background="./hand/head-bg.png" id="header">
+                    <img id="logo" src="./hand/logo.png">
+                </td>
+                <td height="77" align="right" background="./hand/head-bg.png" id="header">
+                    <img id="logo" src="./hand/shield.png">
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#000000" height="100px" valign="middle" colspan="2">
+                    <h1 style="color:#FFFFFF;">3D Articulated Hand Pose Estimation with Single Depth Images</h1>
+                </td>
+            </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="950px" bgcolor="#FFFFFF" align="top">
+            <tbody>
+
+            <tr>
+                <td>
+                    <img src="./hand/hand.png">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <div class="recommend">
+                        
+                        <div class="line" style="margin:0px;width:950px"></div>
+                        
+                        <div class="content">
+
+                            <div class="section">
+
+<label class="title">Workshops <a href="http://www.ics.uci.edu/~jsupanci/HANDS-2015/">HANDS 2015</a> <a href="http://www.iis.ee.ic.ac.uk/dtang/hands2016/">HANDS 2016</a><br><br></label>
+                                
+
+
+                                <label class="title">Publications<br><br></label>
+                                <table width="870px">
+                                    <tbody>
+									
+						
+ 
+	                                    
+									    <tr><td valign="top" width="230px"><img width="200px" src="images/pubs_images/Shanxin_Qi_CVPR2017.png"></td><td>S. Yuan, Q. Ye, B. Stenger, S. Jain, T-K. Kim<br> <font style="font-weight:bold">Big Hand 2.2M Benchmark: Hand Pose Data Set and State of the Art Analysis,</font>Proc. of IEEE Conf. on Computer Vision and Pattern Recognition, (<strong>CVPR</strong>), Honolulu, Hawaii, USA, 2017.<br><br>
+                                            Download: <a href="docs/pubs/Shanxin_CVPR_2017.pdf" target="_blank">PDF</a>  
+                                            </td>
+                                        </tr>
+
+
+
+
+                                        <tr><td valign="top" width="230px"><img width="200px" src="./hand/Arxiv_16.png"></td><td>Q. Ye*, S. Yuan*, T-K. Kim<br> <font style="font-weight:bold">Spatial Attention Deep Net with Partial PSO for Hierarchical Hybrid Hand Pose Estimation,</font>Proc. of European Conf. on Computer Vision (ECCV), Amsterdam, Netherlands, 2016. (*indicates equal contribution).<br><br>
+                                            Download: <a href="docs/pubs/Qi_Shanxin_ECCV_2016.pdf" target="_blank">PDF</a>  
+                                            </td>
+                                        </tr>
+
+
+                                        <tr>
+                                        <td valign="top" width="230px"><img width="200px" src="./hand/cviu16.jpg"></td><td>Hyung Jin Chang, Guillermo Garcia-Hernando, Danhang Tang, Tae-Kyun Kim<br>
+                                        <font style="font-weight:bold">Spatio-Temporal Hough Forest for Efficient Detection-Localisation-Recognition of Fingerwriting in Egocentric Camera,</font><br>
+                                            Computer Vision and Image Understanding (CVIU) 2016.<br><br>
+                                        Download: <a href="docs/pubs/HyungJin_CVIU_2016.pdf" target="_blank">PDF</a> 
+                                        </td>
+                                        </tr>                                     
+
+
+                                        
+                                        <tr>
+                                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="./hand/iccv_15.png"></td><td>Danhang Tang, Jonathan Taylor, Pushmeet Kohli, Çem Keskin, T-K. Kim, Jamie Shotton<br>
+
+                                        <font style="font-weight:bold">Opening the Black Box: Hierarchical Sampling Optimization for Estimating Human Hand Pose, </font>
+                                        Proc. of IEEE Int. Conf. on Computer Vision (<font style="font-weight:bold">ICCV</font>), Santiago, Chile, 2015 (<font style="font-weight:bold">oral</font>, acceptance rate=3.3%).<br><br>
+                                        Download: <a href="http://www.iis.ee.ic.ac.uk/dtang/iccv_2015_camready.pdf" target="_blank">PDF</a>  [<a href="http://www.iis.ee.ic.ac.uk/dtang/iccv_2015_supplementary_camready.pdf" target="_blank">Supplementary</a>] [<a href="https://www.youtube.com/watch?v=BU_mIJMoKbE" target="_blank">Demo on YouTube</a>]
+                                        </td>
+                                    </tr> 
+
+
+
+
+
+                                        <tr>
+                                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="./hand/VR_15.png"></td><td>Y. Jang, S. Noh, H. Chang, T-K. Kim, W. Woo<br>
+                                        <font style="font-weight:bold">3D Finger CAPE: Clicking Action and Position Estimation under Self-Occlusions in Egocentric Viewpoint, </font>Proc. of IEEE Virtual Reality (VR), Arles, France, 2015 <em>(full paper, accept rate=13.8% (13/94)), also in IEEE Trans. on Visualization and Computer Graphics, 21(4):501-510, Apr 2015</em>.<br>
+                                        Download: <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/docs/pubs/Youngkyoon_TVCG_2015.pdf">pdf</a>  [<a href="https://sites.google.com/site/fingergesture/">Project page</a>]
+                                        </td>
+                                    </tr>
+
+
+
+
+
+
+
+
+ 
+                                        <tr>
+                                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="./hand/cvpr14.png"></td><td>D. Tang, H.J. Chang*, A. Tejani*, T-K. Kim<br>
+                                        <font style="font-weight:bold">Latent Regression Forest: Structured Estimation of 3D Hand Posture,</font>
+                                        Proc. of IEEE Conf. on Computer Vision and Pattern Recognition (<font style="font-weight:bold">CVPR</font>), Columbus, Ohio, USA, 2014 (oral, accept rate=5.75%).<br>*indicates equal contribution.<br><br>
+                                        Download: <a href="http://www.iis.ee.ic.ac.uk/dtang/cvpr_14.pdf" target="_blank">PDF</a> [ 960 KB] [<a href="http://youtu.be/ZI_XNPI_QXA" target="_blank">Demo on YouTube video</a>] [<a href="http://www.iis.ee.ic.ac.uk/dtang/hand.html">Project page</a>]
+                                        </td>
+                                       </tr> 
+
+
+
+
+
+                                       <tr>
+                                        <td valign="top" width="230px"><img class="snapshot" width="200px" height="150px" src="./hand/iccv13_danny.png"></td><td>D. Tang, T.H. Yu and T-K. Kim<br>
+                                        <font style="font-weight:bold">Real-time Articulated Hand Pose Estimation using Semi-supervised Transductive Regression Forests,</font>
+                                        Proc. of IEEE Int. Conf. on Computer Vision (<font style="font-weight:bold">ICCV</font>), Sydney, Australia, 2013 (oral, accept rate=2.7%).<br><br>
+                                        Download: <a href="http://www.iis.ee.ic.ac.uk/dtang/iccv_13.pdf" target="_blank">PDF</a> [ 1,465 KB] [<a href="http://youtu.be/ZdpScZH2KW0" target="_blank">Demo on YouTube video</a>] [<a href="http://www.iis.ee.ic.ac.uk/dtang/ICCV_Oral_Presentation_v3.pptx">Slides</a>]
+                                        </td>
+                                    </tr>                                  
+                                </tbody></table>
+                            </div>
+
+
+
+                            
+                            <div class="line"></div>
+
+                            <div class="section">
+                                <label class="title">ICVL Hand Posture Dataset<br><br></label>
+                                <table width="870px">
+                                    <tbody>
+
+                                 <tr>
+                                 <td valign="top" width="230px"><font color="red">Download: New Annotation</font></td>
+                                 <td> <font style="font-weight:bold"><a href="http://www.iis.ee.ic.ac.uk/ComputerVision/hand/dataset/new/Training.7z">Training</a>&nbsp;/&nbsp;<a href="http://www.iis.ee.ic.ac.uk/ComputerVision/hand/dataset/new/Testing.7z">Testing</a>&nbsp;</font><br><br><br>
+                                        </td>
+                                        </tr>  
+
+
+
+
+                                        <tr>
+                                        <td valign="top" width="230px">Download:</td>
+                                        <td> <font style="font-weight:bold"><a href="http://www.iis.ee.ic.ac.uk/ComputerVision/hand/dataset/old/Training.tar.gz">Training</a>&nbsp;/&nbsp;<a href="http://www.iis.ee.ic.ac.uk/ComputerVision/hand/dataset/old/Testing.tar.gz">Testing</a>&nbsp;/&nbsp;<a href="http://www.iis.ee.ic.ac.uk/ComputerVision/hand/dataset/old/Results.tar.gz">Our results</a></font><br><br><br>
+                                        </td>
+                                        </tr> 
+
+
+
+                                        <tr>
+                                        <td valign="top" width="230px">Label description:</td>
+                                        <td> <ul><li>Each line is corresponding to one image.</li>
+                                                <li>Each line has 16x3 numbers, which indicates (x, y, z) of 16 joint locations. Note that these are joint CENTRE locations.</li>
+                                                <li>Note that (x, y) are in pixels and z is in mm.</li>
+                                                <li>The order of 16 joints is Palm, Thumb root, Thumb mid, Thumb tip, Index root, Index mid, Index tip, Middle root, Middle mid, Middle tip, Ring root, Ring mid, Ring tip, Pinky root, Pinky mid, Pinky tip.</li>
+                                                <li>We used Intel Creative depth sensor. Calibration parameters can be obtained as in Page 119 of <a target="_blank" href="https://software.intel.com/sites/default/files/article/328576/sdkmanual-core.pdf">SDK Manual</a>:
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>  
+                                
+                                </tbody></table>
+
+                                <br>                                
+                                Many thanks to <a target="_blank" href="http://www.iis.ee.ic.ac.uk/~ghernando/">Guillermo Garcia</a> for help with publishing this dataset.
+
+                                <br>                                
+                                Many thanks to <a target="_blank" href="http://www.iis.ee.ic.ac.uk/dtang/">Danhang Tang</a>, Shanxin Yuan, and Qi Ye for help with reannotating this dataset.
+
+
+                  
+                            </div>
+
+                            <div class="line"></div>
+
+                            
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody></table></div></body></html>

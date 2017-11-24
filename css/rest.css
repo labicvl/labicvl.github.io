@@ -1,0 +1,198 @@
+/*
+
+Original Author: Tomas Lach (www.tomaslach.cz)
+Heavily Modified by OS Templates (http://www.os-templates.com)
+
+Changing colours is now simple, now uses @import to import the individual CSS colour scheme instead of having to use multiple templates
+The template now gracefully degrades for older browsers - IE 7 + 8 are now also partially supported
+
+Template re-named to: Unique. AIO (All In One)
+
+*/
+
+/*******************************************************************************************************************
+*  IMPORT OTHER STYLES                                                                                             
+*******************************************************************************************************************/
+@import url(reset.css); 
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400, 700, 400italic, 700italic|Pacifico); 
+@import url(jquery.fancybox-1.3.4.css); 
+/* 
+Choose the colour you wish to use => colour-black.css is default
+@import url(colour-black.css);
+@import url(colour-blue.css);
+@import url(colour-green.css);
+@import url(colour-pink.css);
+@import url(colour-purple.css);
+@import url(colour-red.css);
+*/
+@import url(colour-black_rest.css);
+
+
+/*******************************************************************************************************************
+*  BASE                                                                                                            
+*******************************************************************************************************************/
+body{padding-top:15px; color:#71777d; font:normal 13px Helvetica,Arial,Tahoma,Verdana; padding-bottom:0px;}
+p{line-height:1.7em; margin-bottom:15px;}
+p_r{line-height:1.1em; margin-bottom:15px;}
+address{font-style:normal; padding-bottom:15px;}
+
+/*******************************************************************************************************************
+*  LINKS                                                                                                           
+*******************************************************************************************************************/
+a, a:link, a:focus{outline:0; text-decoration:none;}
+a:hover{text-decoration:underline;}
+a.more{padding-right:15px;}
+
+/*******************************************************************************************************************
+*  H1 - H4                                                                                                         
+*******************************************************************************************************************/
+h1, h2, h3, h4{font-family:"Droid Serif",Arial; line-height:1.5em; margin-bottom:15px; font-weight:bold; font-style:italic;}
+h1{font-size:2.8em; font-family:"Pacifico",Arial; font-weight:normal; color:#fff; margin:0; position:relative; top:20px; text-shadow:1px 1px 1px #01121b;}
+h2{font-size:2.4em;}
+h3{font-size:1.5em;}
+h4{font-size:1.0em; font-family:Helvetica,Arial,Tahoma,Verdana; margin-bottom:10px; font-weight:normal; font-style:normal;}
+h5{font-size:1.1em; font-family:Helvetica,Arial,Tahoma,Verdana; margin-bottom:0px; font-weight:normal; font-style:normal;}
+/*******************************************************************************************************************
+*  HEADER                                                                                                          
+*******************************************************************************************************************/
+.reflection{background:url("img/reflection.png") no-repeat 50% 0; height:100px;}
+
+#header{height:100px; line-height:100px; position:relative;}
+#header nav ul{
+	position: absolute;
+	top: 0;
+	right: -7px;
+}
+#header nav li{float:left; height:100px; font-weight:bold;}
+#header nav li a{float:left; display:block; height:100px; padding:0 20px; color:#fff; text-decoration:none;}
+
+#intro{position:relative; height:0px;}
+#intro #slider{height:0px; overflow:hidden; width:980px; position:relative;}
+#intro #slider .window{width:520px; height:373px; background:url("img/window.png") no-repeat; float:left; position:relative;}
+#intro #slider .video{width:520px; height:373px; padding:30px 0 0 20px; float:left; position:relative;}
+#intro #slider .window *{position:absolute; left:11px; top:37px;}
+#intro #slider .content{width:380px; position:relative; right:20px; float:right;}
+#intro #slider h2{margin-bottom:20px;}
+#intro #slider ul{height:470px; position:absolute; top:0; left:0;}
+#intro #slider ul li{display:block; padding:35px 0; overflow:hidden; width:980px; float:left;}
+#intro #slider p{margin-bottom:20px; color:#fff; font-size:1.0em;}
+#intro a.prev, #intro a.next{display:block; width:15px; height:22px; text-indent:-9999px; position:absolute; top:45%; margin-top:-11px;}
+#intro a.prev{left:-35px;}
+#intro a.next{right:-35px;}
+
+/*******************************************************************************************************************
+*  CONTENT                                                                                                         
+*******************************************************************************************************************/
+#content{padding:30px 0;}
+#content .separate{padding-bottom:0px; margin-bottom:0px; border-bottom:1px solid #e7e8ea;}
+#content .post{margin-bottom:15px;}
+#content .post:last-child{margin-bottom:0;}
+#content .post .photo{float:left;}
+#content .post .content{width:190px; float:right;}
+#content .post small{color:#808790; font-size:11px;}
+#content iframe{border:1px solid #e7e8ea; margin-bottom:20px;}
+#content .buttonWrap{background:#f6f6f6; border:1px solid #e7e8ea; padding:15px 20px; border-radius:10px; margin:20px 0;}
+#content .buttonWrap .button{position:relative; left:-25px;}
+#content .buttonWrap p{margin:0; font-weight:bold; font-style:italic; font-family:"Droid Serif",Arial; font-size:1.2em; padding:5px 0;}
+
+/*******************************************************************************************************************
+*  FOOTER                                                                                                          
+*******************************************************************************************************************/
+#footer{padding:40px 0; color:#8b8b8b; font-size:0.9em; text-shadow:1px 1px 1px #fff; background:#f1f0f0 url("img/dots-footer.png") repeat-x; padding-bottom:10px; position:relative; left:0px; bottom:5px; width:100%;}
+#footer p{color:#3d3d3d;}
+#footer p .date{color:#999;}
+#footer .followUs a{display:block; float:left; width:30px; height:30px; background-repeat:no-repeat; background-position:0 0; text-indent:-9999px; margin-right:10px;}
+#footer .followUs a:hover{background-position:0 -30px;}
+
+#footer #copyright{display:block; width:100%; margin:0; padding:0px 0 0 0; clear:both; border-top:1px solid #D8D8D8;}
+#footer #copyright p{margin:0; padding:0;}
+
+/*******************************************************************************************************************
+*  OTHER STYLES                                                                                                    
+*******************************************************************************************************************/
+.wrap{margin:0 auto; position:relative; width:980px; margin-bottom:0px;}
+
+.mask{position:absolute; top:0; left:0; width:100%; height:100%;}
+
+a.button{display:block; float:left; height:38px; text-decoration:none;}
+a.button span{position:relative; left:20px; padding:0 20px 0 0; display:block; float:left; height:38px; line-height:38px; font-size:1.0em; font-weight:bold; color:#fff; text-decoration:none;}
+
+.gallery .photo{margin-left:29px;}
+.gallery .photo:first-child{margin-left:0;}
+
+a.photo{display:block; float:left;}
+a.photo img, img.photo{display:block; float:left; border:1px solid #e7e8ea;}
+a.photo:hover img{border-color:#d1d1d1;}
+.photoWrap{margin:30px 0 30px;}
+
+.col1-3{width:980px; margin-left:40px; float:left; padding-bottom:-10px; margin-bottom:-10px;}
+#footer .col1-3{margin-bottom:0px;}
+.col1-3 p:last-child, .col2-3 p:last-child{margin-bottom:0;}
+.col1-3:first-child{margin-left:0;}
+.col2-3{width:640px; margin-left:40px; float:left;}
+#footer .col2-3{margin-bottom:0px;}
+
+/*For publications*/
+#panel_2015,  #panel_2014, #panel_2013,  #panel_2012, #panel_2011,  #panel_2010, #panel_2009,  #panel_2008, #panel_2007, #panel_2006,  #panel_2005, #panel_2004,  #panel_2003, #panel_2002, #panel_Misc, #panel_Pat, #panel_The, #flip_2015, #flip_2014, #flip_2013, #flip_2012, #flip_2011, #flip_2010, #flip_2009, #flip_2008, #flip_2007, #flip_2006, #flip_2005, #flip_2004, #flip_2003, #flip_2002, #flip_Misc, #flip_Pat, #flip_The {
+	cursor:pointer;
+	padding: 0px;
+    text-align: center;
+    background-color:#e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel_2015,  #panel_2014, #panel_2013,  #panel_2012, #panel_2011,  #panel_2010, #panel_2009,  #panel_2008, #panel_2007, #panel_2006,  #panel_2005, #panel_2004,  #panel_2003, #panel_2002, #panel_Misc, #panel_Pat, #panel_The {
+    padding: 0px;
+    display: none;
+	background-color:white;
+}
+/*For publications*/
+
+.black{
+	color:#71777d;
+	}
+.red{
+	color:red;}
+	
+/*For research*/
+#panel_3D_HAND, #panel_OBJ_REG, #panel_ACT_ROB, #panel_OBJ_TRC, #panel_FAC_ANL, #panel_UND_STE, #panel_ACT_REC, #flip_3D_HAND, #flip_OBJ_REG, #flip_ACT_ROB, #flip_OBJ_TRC, #flip_FAC_ANL, #flip_UND_STE, #flip_ACT_REC {
+	cursor:pointer;
+    padding: 0px;
+    text-align: center;
+    background-color:#e5eecc;
+    border: solid 1px #c3c3c3;
+	margin-bottom:0px;
+	
+}
+
+#panel_3D_HAND, #panel_OBJ_REG, #panel_ACT_ROB, #panel_OBJ_TRC, #panel_FAC_ANL, #panel_UND_STE, #panel_ACT_REC {
+    padding: 0px;
+    display: none;
+	background-color:white;
+	margin-bottom:0px;
+}
+/*For research*/
+nota{
+	cursor:pointer;
+    padding: 0px;
+    text-align: center;
+    background-color:#e5eecc;
+   	margin-bottom:0px;
+	border: solid 1px #c3c3c3;
+	}
+
+.targetDiv{
+	display:none;
+}
+
+.sortable tr {
+	cursor:pointer;
+}
+
+/********************************************************************************************************************  TABLE         
+.col1-3{width:300px; margin-left:40px; float:left;}
+#footer .col1-3{margin-bottom:40px;}
+.col1-3 p:last-child, .col2-3 p:last-child{margin-bottom:0;}
+.col1-3:first-child{margin-left:0;}
+.col2-3{width:640px; margin-left:40px; float:left;}                                                                                  
+*******************************************************************************************************************/
