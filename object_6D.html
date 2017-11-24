@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         
+        <meta http-equiv="x-ua-compatible" content="IE=8">
+        <title>Object Recognition, Detection, and 6D Pose Estimation</title>
+        <meta name="Keywords" content="Articulated,3D,Hand Pose,Kinect,Random Forest,Latent Regression Forest">
+        <meta name="Description" content="">
+        <link rel="stylesheet" href="./hand/default.css" type="text/css">
+        <script type="text/javascript" async="" src="./hand/ga.js"></script><script type="text/javascript" async="" src="./hand/ga(1).js"></script><script src="./hand/proxy.js"></script>
+        <script language="javascript" src="./hand/jquery-1.7.2.min.js"></script>
+        <script language="javascript" src="./hand/util.js"></script>
+
+        <script type="text/javascript">        
+        function MM_swapImgRestore() { //v3.0
+          var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+        }
+        function MM_preloadImages() { //v3.0
+          var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+            var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+            if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+        }
+
+        function MM_findObj(n, d) { //v4.01
+          var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+            d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+          if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+          for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+          if(!x && d.getElementById) x=d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+          var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+           if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+        }
+        </script>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-34570838-1']);
+          _gaq.push(['_setDomainName', 'iis.ee.ic.ac.uk']);
+          _gaq.push(['_setAllowLinker', true]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+</head>
+<body onload="loadAll();">
+    <div class="outer_frame">
+        <table border="0" cellpadding="0" cellspacing="0" width="950px" bgcolor="#000000" align="top" style="border:0px;">
+            <tbody>
+            <tr>
+                <td height="77" align="left" background="./hand/head-bg.png" id="header">
+                    <img id="logo" src="./hand/logo.png">
+                </td>
+                <td height="77" align="right" background="./hand/head-bg.png" id="header">
+                    <img id="logo" src="./hand/shield.png">
+                </td>
+            </tr>
+            <tr>
+                <td bgcolor="#000000" height="100px" valign="middle" colspan="2">
+                    <h1 style="color:#FFFFFF;">Object Recognition, Detection, and 6D Pose Estimation</h1>
+                </td>
+            </tr>
+        </tbody></table>
+        <table border="0" cellpadding="0" cellspacing="0" width="950px" bgcolor="#FFFFFF" align="top">
+            <tbody>
+
+            <tr>
+                <td>
+                    <img src="6D_object_images/object_new.png">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <div class="recommend">
+                        
+                        <div class="line" style="margin:0px;width:950px"></div>
+                        
+                        <div class="content">
+
+                            <div class="section">
+
+<label class="title">Comprehensive List of State-of-the-Art Methods and Datasets: <a href="http://www.iis.ee.ic.ac.uk/rkouskou/research/6D_Object.html" style="color: #FF6633"">link</a><br><br><br></label>
+
+
+<label class="title">ICVL Object Detection, and 6D Pose Estimation Datasets: <br>
+<br> <a href="http://www.iis.ee.ic.ac.uk/csahin/Dataset_1.tar.gz" style="color: #FF6633">Dataset 1: 6D Object Pose and Next-Best-View Prediction </a><br>
+<br><a href="http://www.iis.ee.ic.ac.uk/csahin/Dataset_2.tar.gz" style="color: #FF6633">Dataset 2: 6D Object Pose Estimation </a><br><br></label><br>
+
+
+<label class="title">Workshops: <br>
+<br> <a href="http://cmp.felk.cvut.cz/sixd/workshop_2017/" style="color: #FF6633">R6D 2017: 3rd International Workshop on Recovering 6D Object Pose, in conjuction with ICCV </a><br>
+<br> <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/R6D.html" style="color: #FF6633">R6D 2016: 2nd International Workshop on Recovering 6D Object Pose, in conjuction with ECCV </a><br>
+<br><a href="http://www.iis.ee.ic.ac.uk/ComputerVision/3DPose-2015.html" style="color: #FF6633">R6D 2015: 1st International Workshop on Recovering 6D Object Pose, in conjuction with ICCV </a><br><br></label><br>
+
+
+<label class="title">Publications: <br><br></label>
+<table width="870px">
+<tbody>
+
+		        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Vassilis_ICCV_2017.jpg"></td><td>V. Balntas, A. Doumanoglou, C. Sahin, J. Sock, R. Kouskouridas, T-K. Kim, 
+			<br><font style="font-weight:bold">Pose Guided RGBD Feature Learning for 3D Object Pose Estimation,
+			</font><br>Proc. of IEEE Int. Conf. on Computer Vision (ICCV), Venice, Italy, 2017.<br><br>
+                        Download: pdf, coming soon
+                        </td>
+                        </tr>        
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+		        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Caner_arxiv_2017.jpg"></td><td>C. Sahin, T-K. Kim, 
+			<br><font style="font-weight:bold">Recovering 6D Object Pose: Multi-modal Analyses on Challenges,
+			</font><br>arXiv, 2017.<br><br>
+                        Download: <a href="https://arxiv.org/abs/1706.03285" target="_blank">pdf</a> 
+                        </td>
+                        </tr>        
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+
+                        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Rigas_PAMI_2017.jpg"></td><td>R. Kouskouridas, A. Tejani, A. Doumanoglou, D. Tang, T-K. Kim, 
+			<br><font style="font-weight:bold">Latent-Class Hough Forests for 6 DoF Object Pose Estimation,
+			</font><br>IEEE Trans. on PAMI (TPAMI), accepted to appear, 2017.<br><br>
+                        Download: <a href="https://arxiv.org/abs/1602.01464" target="_blank">pdf</a> 
+                        </td>
+                        </tr>    
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Caner_IVC_2017.jpg"></td><td>C. Sahin, R. Kouskouridas, T-K. Kim, 
+			<br><font style="font-weight:bold">A Learning-based Variable Size Part Extraction Architecture for 6D Object Pose Recovery in Depth Images,
+			</font><br>Journal of Image and Vision Computing (IVC), 63:38-50, 2017.<br><br>
+                        Download: <a href="docs/pubs/Caner_IVC_2017.pdf">pdf</a> 
+                        </td>
+                        </tr>        
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Juil_ICCVW_2017.jpg"></td><td>J. Sock, S. Kasaei, L. Lopes, T-K. Kim, 
+			<br><font style="font-weight:bold">Multi-view 6D Object Pose Estimation and Camera Motion Planning using RGBD Images,
+			</font><br>Proc. of IEEE ICCV workshop on Recovering 6D Object Pose, Venice, Italy, 2017.<br><br>
+                        Download: <a href="docs/pubs/Juil_ICCVW_2017.pdf">pdf</a> 
+                        </td>
+                        </tr>     
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img width="200px" src="6D_object_images/Andreas_arxiv_2016.png"></td><td>A. Doumanoglou, V. Balntas, R. Kouskouridas, T-K. Kim, 
+			<br><font style="font-weight:bold">Siamese Regression Networks with Efficient mid-level Feature Extraction for 3D Object Pose Estimation,
+			</font><br>arXiv, 2016.<br><br>
+                        Download: <a href="https://arxiv.org/abs/1607.02257" target="_blank">pdf</a> 
+                        </td>
+                        </tr>        
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+
+
+                        <tr><td valign="top" width="230px"><img width="200px" src="6D_object_images/Andreas_CVPR_2016.png"></td><td>A. Doumanoglou, R. Kouskouridas, S. Malassiotis, T-K. Kim,
+			<br> <font style="font-weight:bold">Recovering 6D Object Pose and Predicting Next-Best-View in the Crowd, 
+			</font><br>Proc. of IEEE Conf. on Computer Vision and Pattern Recognition (CVPR), Las Vegas, USA, 2016.<br><br>
+                        Download: <a href="http://arxiv.org/abs/1512.07506" target="_blank">pdf</a> / <a href="http://youtu.be/AZpoB673M8w" target="_blank">video</a>  
+                        </td>
+                        </tr>
+
+
+
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Andreas_TRO_2016.png"></td><td>A. Doumanoglou, J. Stria, G. Peleka, I. Mariolis, V. Petrik, A. Kargakos, L. Wagner, V. Hlavac, T-K. Kim, S. Malassiotis, 
+			<br><font style="font-weight:bold">Folding Clothes Autonomously: A Complete Pipeline, 
+			</font><br>IEEE Transactions on Robotics, 2016.<br><br>
+                        Download: <a href="docs/pubs/Andreas_TRO_2016.pdf">pdf</a> 
+                        </td>
+                        </tr>
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Caner_IROS_2016.gif"></td><td>C. Sahin, R. Kouskouridas, T-K. Kim, 
+			<br><font style="font-weight:bold">Iterative Hough Forest with Histogram of Control Points for 6 DoF Object Registration from Depth Images, 
+			</font><br>IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Daejeon, Korea, 2016.<br><br>
+                        Download: <a href="docs/pubs/Caner_IROS_2016.pdf">pdf</a> / <a href="http://youtu.be/CFG2DYhgWR4" target="_blank">video</a>
+                        </td>
+                        </tr>
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Andreas_ECCV_2014.gif"></td><td>A. Doumanoglou, T-K. Kim, X. Zhao, S. Malassiotis,
+			<br><font style="font-weight:bold">Active Random Forests: An application to Autonomous Unfolding of Clothes, 
+			</font><br>Proc. of European Conference on Computer Vision (ECCV), Zurich, Switzerland, 2014.<br><br>
+                        Download: <a href="docs/pubs/Andreas_ECCV_2014.pdf">pdf</a> / <a href="http://youtu.be/ToAV_5mgN2Q" target="_blank">video</a>
+                        </td>
+                        </tr>
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Andreas_ICRA_2014"></td><td>A. Doumanoglou, A. Kargakos, T-K. Kim, S. Malassiotis,<br>
+                        <font style="font-weight:bold">Autonomous Active Recognition and Unfolding of Clothes using Random Decision Forests and Probabilistic Planning, 
+			</font><br>Proc. of IEEE Int. Conf. on Robotics and Automation (ICRA), Hong Kong, China, 2014.<br><br>
+                        Download: <a href="docs/pubs/Andreas_ICRA_2014.pdf">pdf</a> / <a href="http://youtu.be/YpD-ip6g5lY" target="_blank">video</a>
+                        </td>
+                        </tr>
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Aly_ECCV_2014"></td><td>A. Tejani, D. Tang, R. Kouskouridas, T-K. Kim,<br>
+                        <font style="font-weight:bold">Latent-Class Hough Forests for 3D Object Detection and Pose Estimation, 
+			</font><br>Proc. of European Conference on Computer Vision (ECCV), Zurich, Switzerland, 2014.<br><br>
+                        Download: <a href="docs/pubs/Aly_ECCV_2014.pdf">pdf</a> / <a href="http://youtu.be/idY3Q7wg5rk" target="_blank">video</a>
+                        </td>
+                        </tr>
+
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Yang_CVPRW_2014"></td><td>Y. Liu*, Y. Jang*, W. Woo, T-K. Kim,<br>
+                        <font style="font-weight:bold">Video-based Object Recognition using Novel Set-of-Sets Representation, 
+			</font><br>Proc. of 3rd Workshop on Egocentric (First-person) Vision (In conjunction with CVPR), Columbus, Ohio, USA, 2014, (*indicates equal contribution).<br><br>
+                        Download: <a href="docs/pubs/Yang_CVPRWork_2014.pdf">pdf</a> 
+                        </td>
+                        </tr>
+<!--Do not mess with these.. For spacing reasons -->
+      <tr><td colspan="3">&nbsp;</td></tr>
+<!--Do not mess with these.. For spacing reasons -->
+
+                        <tr>
+                        <td valign="top" width="230px"><img class="snapshot" width="200px" src="6D_object_images/Yu_ECCV_2010.png"></td><td>Y. Chen, T-K. Kim, R. Cipolla,<br>
+                        <font style="font-weight:bold">Inferring 3D Shapes and Deformations from Single Views, 
+			</font><br>Proc. of European Conference on Computer Vision (ECCV), Crete, Greece, 2010.<br><br>
+                        Download: <a href="docs/pubs/Chen_ECCV_2010.pdf">pdf</a>
+                        </td>
+                        </tr>
+
+                            </tbody></table>
+                            </div>
+ 
+<div class="line"></div>
+
+                            <div class="section">
+                                <label class="title">Contact<br><br></label>
+                                <table width="870px">
+                                    <tbody>
+
+                                                                                                   
+For any inquiries or feedback, please contact with <a href="http://www.iis.ee.ic.ac.uk/ComputerVision/" target="_blank">Juil Sock</a>, <a target="_blank" href="http://www.iis.ee.ic.ac.uk/~csahin/">Caner Sahin</a>, and <a href= "http://www.iis.ee.ic.ac.uk/icvl/cv.htm" target="_blank">Tae-Kyun Kim</a>.
+
+                                
+                                </tbody></table>
+
+
+
+
+                  
+                            </div>
+
+                            <div class="line"></div>
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody></table></div></body></html>
