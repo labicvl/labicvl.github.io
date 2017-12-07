@@ -1,0 +1,47 @@
+HyungJin	 	Chang	hj.chang@imperial.ac.uk	Imperial College London
+Youngkyoon	 	Jang	youngkyoonjang@gmail.com	KAIST
+Juergen	 	Gall	gall@iai.uni-bonn.de	University of Bonn
+Jan	 	Kautz	jan@thisdomain.com	NVIDIA
+Yichen	 	Wei	yichenw@microsoft.com	MSR Asia
+Leonid	 	Keselman	lkeselman@gmail.com	Intel
+Christian	 	Theobalt	theobalt@mpii.de	MPII and Saarland University
+Thomas	 	Feix	thomasfeix@xief.net	Yale University
+Ian	M.	Bullock	ian.bullock@yale.edu	Yale University
+Aaron	M.	Dollar	aaron.dollar@yale.edu	Yale University
+Chen	 	Yu	chenyu@indiana.edu	Indiana University
+Otmar	 	Hilliges	otmar.hilliges@inf.ethz.ch	ETH Zurich
+Jonathan	 	Taylor	jota@microsoft.com	MSR Cambridge
+Domenico	 	Praticchizzo	prattichizzo@ing.unisi.it	University of Siena
+Cheng	 	Li	chengli@bii.a-star.edu.sg	AStar
+
+Dear {Recipient.Name},
+
+Because of your substantial and related expertise, on behalf of HANDS2016 organizers, I would like to invite you to be a member of our technical program committee. Each member would review some paper drafts submitted to the workshop, in the period of (tentatively) 1st Apr to 1st May, 2016. 
+
+HANDS2016 Workshop, in conjunction with CVPR 2016, is the attempt at gathering researchers who work on hand detection and hand pose estimation problems. Development of RGB-D sensors and camera miniaturization have opened the door to a whole new range of technologies and applications which require detecting hands and recognizing hand poses in a variety of scenarios. Most hand tracking data sets and papers have been focused on simple near-range front-on scenarios. This workshop attempts to move past this with the goal of evaluating a "breadth of applications" including: sign language recognition, desktop interaction, egocentric views, object manipulations, far range and over-the-shoulder driver footage.
+
+Topics of interests are:
+
+Hand detection
+Hand pose and gesture recognition
+3D articulated hand tracking
+Hand modelling and rendering
+Grasping and object manipulation
+Hand activity recognition
+Gesture interfaces
+Egocentric vision systems
+Structured prediction
+Applications of hand pose estimation in AR/VR
+Applications of hand pose estimation in robotics and haptics
+
+You can find more information on our provisional website:
+http://www.iis.ee.ic.ac.uk/dtang/hands2016/
+
+Please click the following link to accept/reject the invitaion:
+{Recipient.InviteeUrl}
+Please note that due to the restriction of new cmt, this invitation expires on {Invite.Expiration}. If you could not respond in time, please kindly reply this email with your decision after the deadline.
+
+Please contact d.tang11@imperial.ac.uk if you have questions about the invitation.
+
+Thanks,
+HANDS2016 Organizers
